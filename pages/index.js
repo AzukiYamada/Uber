@@ -5,17 +5,10 @@ import tw from "tailwind-styled-components"
 
 export default function Home() {
   return (
-<<<<<<< Updated upstream
-    <div className={styles.container}>
-      <div className={styles.map}>Map</div>
-      <div className={styles.start}>start</div>
-    </div>
-=======
     <Wrapper>
       <Map>Map</Map>
       <ActionItems>start</ActionItems>
     </Wrapper>
->>>>>>> Stashed changes
   )
 }
 
