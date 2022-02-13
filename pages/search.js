@@ -14,7 +14,8 @@ const search = () => {
                     <Square src="https://img.icons8.com/windows/50/000000/square-full.png"/>
                 </FromToIcons>
                 <InputBoxes>
-                
+                    <Input placeholder='Enter pickup location'/>
+                    <Input placeholder='Where to?'/>
                 </InputBoxes>
             </InputContainer>
         </Wrapper>
@@ -39,6 +40,7 @@ const BackButton = tw.img`
 
 const InputContainer = tw.div`
     bg-white
+    flex
 `
 
 const FromToIcons = tw.div`
@@ -52,3 +54,19 @@ const Circle = tw.img``
 const Line =  tw.img``
 
 const Square = tw.img``
+
+const InputBoxes = tw.div`
+    flex
+    flex-col
+    flex-1
+`
+
+const Input = tw.input`
+    h-10
+    bg-gray-200
+    my-2
+    rounded-2
+    p-2
+    outline-none
+    border-none
+`
