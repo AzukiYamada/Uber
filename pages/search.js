@@ -1,11 +1,14 @@
 import React from 'react'
 import tw from "tailwind-styled-components"
+import Link from 'next/link'
 
 const search = () => {
     return(
         <Wrapper>
             <ButtonContainer>
-                <BackButton src="https://img.icons8.com/ios-filled/50/000000/left.png"/>
+                <Link href="/">
+                    <BackButton src="https://img.icons8.com/ios-filled/50/000000/left.png"/>
+                </Link>
             </ButtonContainer>
             <InputContainer>
                 <FromToIcons>
