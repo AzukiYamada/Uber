@@ -5,19 +5,32 @@ import mapboxgl from '!mapbox-gl'
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYXp1a2l5YW1hZGEiLCJhIjoiY2t6Yzh4cm9rMmp4NjJucHZuZjl6NGo2cCJ9.JLbhcNhvlfrBN2hQ3UHqbA';
 
-const map = () => {
+const map = (props) => {
+    console.log(props)
+
     useEffect(() => { 
         const map = new mapboxgl.Map({
             container: "map",
-            style: 'mapbox://styles/azukiyamada/ckzgc6xx4000915ovod2nvlbk',
+            style: 'mapbox://styles/drakosi/ckvcwq3rwdw4314o3i2ho8tph',
             center: [139.7673068, 35.6809591],
             zoom: 13
-            });
-        });
+    });
 
-    return <Wrapper id='map'>
+        if(props.pickupCoordinates){
+            addToMap(map, props.pickupCoordinates)
+        }
+        if(props.dropoffCoordinates){
+            addToMap(map, props.dropoffCoordinates)
+        }
+    },[props.pickupCoordinates, props.dropoffCoordinates])
 
-    </Wrapper>
+    const addToMap = (map, coordinates) => {
+            const marker1 = new mapboxgl.Marker()
+            .setLngLat(coordinates)
+            .addTo(map);
+    }
+
+    return <Wrapper id='map'></Wrapper>
 };
 
 export default map;
