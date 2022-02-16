@@ -13,8 +13,7 @@ const Confirm = () => {
     const [ pickupCoordinates, setPickupCoordinates ] = useState()
     const [ dropoffCoordinates, setDropoffCoordinates ] = useState()
 
-    const getPickupCoordinates = () => {
-        const pickup = "Santa Monica"
+    const getPickupCoordinates = (pickup) => {
         fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${pickup}.json?` +
             new URLSearchParams({
                 access_token:"pk.eyJ1IjoiYXp1a2l5YW1hZGEiLCJhIjoiY2t6Yzh4cm9rMmp4NjJucHZuZjl6NGo2cCJ9.JLbhcNhvlfrBN2hQ3UHqbA",
@@ -27,8 +26,7 @@ const Confirm = () => {
         })
     }
 
-    const getDropoffCoordinates = () => {
-        const dropoff = "Los Angeles"
+    const getDropoffCoordinates = (dropoff) => {
         fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${dropoff}.json?` +
             new URLSearchParams({
                 access_token:"pk.eyJ1IjoiYXp1a2l5YW1hZGEiLCJhIjoiY2t6Yzh4cm9rMmp4NjJucHZuZjl6NGo2cCJ9.JLbhcNhvlfrBN2hQ3UHqbA",
@@ -42,9 +40,9 @@ const Confirm = () => {
     }
 
     useEffect(()=>{
-        getPickupCoordinates();
-        getDropoffCoordinates();
-    },[])
+        getPickupCoordinates(pickup);
+        getDropoffCoordinates(dropoff);
+    },[pickup, dropoff])
 
     return (
         <Wrapper>
