@@ -48,6 +48,11 @@ const Confirm = () => {
 
     return (
         <Wrapper>
+            <ButtonContainer>
+                <Link href='/search'>
+                    <BackButton src="https://img.icons8.com/ios-filled/50/000000/left.png" />
+                </Link>
+            </ButtonContainer>
             <Map 
                 pickupCoordinates={pickupCoordinates}
                 dropoffCoordinates={dropoffCoordinates}
@@ -95,4 +100,20 @@ const ConfirmButton = tw.div`
     py-4
     text-center
     text-xl
+`
+
+const ButtonContainer = tw.div`
+    rounded-full
+    absolute
+    top-4
+    left-4
+    z-10
+    bg-white
+    shadow-md
+    cursor-pointer
+`
+
+const BackButton = tw.img`
+    h-full
+    object-contain
 `
