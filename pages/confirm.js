@@ -3,6 +3,7 @@ import tw from "tailwind-styled-components"
 import Map from './components/Map'
 import RideSelector from './components/RideSelector';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const Confirm = () => {
     const router = useRouter()
@@ -11,8 +12,8 @@ const Confirm = () => {
     console.log("pickup", pickup)
     console.log("dropoff", dropoff)
 
-    const [ pickupCoordinates, setPickupCoordinates ] = useState()
-    const [ dropoffCoordinates, setDropoffCoordinates ] = useState()
+    const [ pickupCoordinates, setPickupCoordinates ] = useState([0,0])
+    const [ dropoffCoordinates, setDropoffCoordinates ] = useState([0,0])
 
     const getPickupCoordinates = (pickup) => {
         fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${pickup}.json?` +
@@ -53,7 +54,10 @@ const Confirm = () => {
             />
 
             <RideContainer> 
-                <RideSelector />
+                <RideSelector 
+                pickupCoordinates={pickupCoordinates}
+                dropoffCoordinates={dropoffCoordinates}
+                />
                 <ConfirmButtonContainer>
                     <ConfirmButton>
                         Confirm
