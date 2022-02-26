@@ -7,7 +7,7 @@ import { auth, provider } from '../firebase';
 
 const Login = () => {
 
-    const router = useRouter()
+    const router = useRouter();
 
     useEffect(() => {
 
